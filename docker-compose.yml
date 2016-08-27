@@ -1,0 +1,14 @@
+version: '2'
+services:
+  app:
+    build: .
+    environment:
+      - SECRET_KEY_BASE='598b5abb20fb110f686d8230765c1a72e1aac33f63c38646c1f3639e570c847a5b9ed0dd21f7c8797f2cd0859b1a5a3e5e179167f5c07372d005226159ce1a54'
+    ports:
+     - "3000:3000"
+    depends_on:
+     - db
+  db:
+    image: postgres:latest
+    expose:
+      - "5432"
